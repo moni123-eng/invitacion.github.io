@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piensalo Bien</title>
+    <link rel="icon" href="https://preview.redd.it/the-new-icons-kinda-goofy-on-mac-os-v0-gtfc99yy8q4b1.png?width=416&format=png&auto=webp&s=9a6ede1de47144442835fe645dcdc5a3705d8db6"> <!-- Cambia esto por la URL de tu ícono -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.redd.it/6xa16vtysz251.png'); /* Cambia esto por la URL de tu imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            text-align: center;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #3D7B3E;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #a8ec09;
+        }
+    </style>
+</head>
+<body>
+    <h1>Por favor 😢</h1>
+    <button id="download-button">Regresar al inicio</button>
+
+    <script>
+        document.getElementById('download-button').onclick = function() {
+            window.location.href = "index.html";
+        };
+    </script>
+</body>
+</html>

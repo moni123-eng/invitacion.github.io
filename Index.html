@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitacion Minecraft</title>
+    <link rel="icon" href="https://preview.redd.it/the-new-icons-kinda-goofy-on-mac-os-v0-gtfc99yy8q4b1.png?width=416&format=png&auto=webp&s=9a6ede1de47144442835fe645dcdc5a3705d8db6"> <!-- Cambia esto por la URL de tu ícono -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://wallpapers-clan.com/wp-content/uploads/2023/10/minecraft-grass-tree-desktop-wallpaper-preview.jpg'); /* Cambia esto por la URL de tu imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            text-align: center;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* Necesario para los corazones flotantes */
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #3D7B3E;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s; /* Añadida la transición para el tamaño */
+            margin: 0 10px; /* Espacio entre botones */
+        }
+        button:hover {
+            background-color: #4A9B48;
+        }
+        .hidden {
+            display: none;
+        }
+        .download-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .download-container img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .download-container img:hover {
+            transform: scale(1.1);
+        }
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: red;
+            animation: float 2s ease forwards; /* Añade la animación */
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+        }
+        footer {
+            margin-top: auto;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            button {
+                width: 100%;
+                font-size: 1.2em;
+            }
+            .download-container img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¿Quieres jugar Minecraft?</h1>
+        <button id="accept-button">Sí</button>
+        <button id="decline-button">No</button>
+    </div>
+
+    <div class="download-container hidden" id="download-container">
+        <a href="https://drive.google.com/file/d/13McCiciPsnScrvOhcLohMb8swWbKCpCV/view?usp=drive_link">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4l8wtu1VlrfGiFRPbtt_X6bcg-YJdM1zEBvVtYkeXXta634ThwIcYyjCIYl6urUwKQ8E&usqp=CAU" alt="Creeper con corazón" id="creeper-image">
+        </a>
+        <p>Haz clic en la imagen para descargar Minecraft</p>
+    </div>
+
+    <footer>
+        <p>© 2024 EM. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const acceptButton = document.getElementById('accept-button');
+        const declineButton = document.getElementById('decline-button');
+        const mainContainer = document.querySelector('.container');
+        const downloadContainer = document.getElementById('download-container');
+
+        acceptButton.onclick = function() {
+            mainContainer.style.display = 'none';
+            downloadContainer.style.display = 'flex';
+            showHearts();
+        };
+
+        declineButton.onclick = function() {
+            window.location.href = "second-page.html"; // Redirige a la segunda página
+        }
+        function showHearts() {
+            for (let i = 0; i < 5; i++) { // Cambia el número para más corazones
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw'; // Posición aleatoria en el ancho
+                heart.style.bottom = '0'; // Comienza desde abajo
+                document.body.appendChild(heart);
+                // Eliminar el corazón después de la animación
+                setTimeout(() => {
+                    heart.remove();
+                }, 2000); // Duración de la animación
+            }
+        }
+    </script>
+</body>
+</html>
